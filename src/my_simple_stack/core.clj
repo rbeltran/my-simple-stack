@@ -4,19 +4,19 @@
   (:refer-clojure :exclude [pop peek length empty]))
 
 (defprotocol PStack
-  (push [this element])
-  (pop [this])
-  (peek [this])
-  (length [this])
   (empty-stack [this])
+  (length [this])
+  (peek [this])
+  (push [this element])
+  (tail [this])
 )
 
 (defrecord Stack [elements]
   PStack
   (push [_ element]
-    (->Stack (concat element elements )))
-  (pop [_]
-    (first elements)
+     (->Stack (concat element elements )))
+    ; vector style(->Stack (into element elements )))
+  (tail [_]
     (->Stack(rest elements)))
   (peek [_] 
     (first elements))
@@ -32,16 +32,15 @@
   (def stack (->Stack nil))
   (println "empty-stack? = " (empty-stack stack))
 
-  (def stack (->Stack [1 2 3 4 5 ]))
+ ;vector style (def stack (->Stack [1 2 3 4 5 ]))
+  (def stack (->Stack (list 1 2 3 4 5 )))
   (println "New Stack() = "  stack)
   (println "Size = "  (length stack))
   (def stack (push stack [6]))
   (println "stack2 = " stack)
-  (println "Size = "  (length stack))
-  (def stack (pop stack)) 
-  (println "stack3 = " stack)
-  (println "Size = "  (length stack))
   (println "peek stack3 = " (peek stack))
+  (def stack (tail stack))
+  (println "Size = "  (length stack))
   (println "stack4 = " stack)
   (println "empty-stack? = " (empty-stack stack))
 )
