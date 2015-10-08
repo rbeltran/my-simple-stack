@@ -1,36 +1,36 @@
 # my-simple-stack
 
-FIXME: description
+A stack in Clojure
 
 ## Installation
 
-Download from http://example.com/FIXME.
+git clone git@github.com:rbeltran/my-simple-stack.git
+
+Install Lein a tool for compiling and running Clojure projects
+
+http://leiningen.org/
 
 ## Usage
 
-FIXME: explanation
+compile:
 
-    $ java -jar my-simple-stack-0.1.0-standalone.jar [args]
+  $ lein compile
+
+run:
+
+  $ lein run
 
 ## Options
 
-FIXME: listing of options this app accepts.
 
 ## Examples
 
-...
 
 ### Bugs
 
-...
 
-### Any Other Sections
-### That You Think
-### Might be Useful
 
 ## License
-
-Copyright © 2015 FIXME
 
 Distributed under the Eclipse Public License either version 1.0 or (at
 your option) any later version.
